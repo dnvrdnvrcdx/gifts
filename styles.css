@@ -354,22 +354,23 @@ h1 span {
 /* bouquet wrapping paper */
 .wrap {
     position: absolute;
+
     left: 50%;
     bottom: 8px;
+
+    transform: translateX(-50%);
 
     width: 250px;
     height: 185px;
 
-    transform: translateX(-50%);
-
-    z-index: 50;
+    z-index: 40;
 
     background:
         linear-gradient(
             120deg,
-            #fff3f7 0%,
+            #fff3f7,
             #f3d1df 45%,
-            #d79bb8 100%
+            #d79bb8
         );
 
     clip-path: polygon(
@@ -378,137 +379,89 @@ h1 span {
         72% 100%,
         28% 100%
     );
-
-    filter:
-        drop-shadow(
-            0 15px 20px
-            rgba(0,0,0,.38)
-        );
-}
-
-/* subtle fold in the paper */
-.wrap::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: 2px;
-    height: 100%;
-
-    background:
-        rgba(255,255,255,.4);
-
-    transform:
-        translateX(-50%)
-        rotate(6deg);
 }
 
 /* =====================================================
    FLOWER BASE
    ===================================================== */
 
+/* =====================================================
+   ALL FLOWERS SHARE THE EXACT SAME X/Y ORIGIN
+   ===================================================== */
+
 .flower {
     position: absolute;
 
+    /* EXACT SAME POSITION FOR EVERY FLOWER */
     left: 50%;
-    bottom: 72px;
+    bottom: 70px;
 
     width: 120px;
     height: 310px;
 
     transform-origin: 50% 100%;
 
-    animation:
-        sway 5s ease-in-out infinite;
-
-    will-change: transform;
+    animation: sway 5s ease-in-out infinite;
 }
 
-/*
-    BACK ROW
-    These are taller and sit behind the smaller
-    foreground flowers.
-*/
 
-/* pink tulip — back left */
+/* BACK / TALL FLOWERS */
+
 .flower-a {
     transform:
-        translateX(-130px)
-        rotate(-22deg)
-        scale(.92);
+        translateX(-50%)
+        rotate(-25deg)
+        scale(1);
 
     z-index: 5;
-
-    animation-delay: -1s;
 }
 
-/* blue tulip — back center-left */
 .flower-b {
     transform:
-        translateX(-65px)
-        rotate(-10deg)
-        scale(.86);
-
-    z-index: 7;
-
-    animation-delay: -2s;
-}
-
-/* blue tulip — back center-right */
-.flower-d {
-    transform:
-        translateX(45px)
-        rotate(10deg)
-        scale(.86);
-
-    z-index: 7;
-
-    animation-delay: -1.7s;
-}
-
-/* rose — back right */
-.flower-f {
-    transform:
-        translateX(115px)
-        rotate(21deg)
+        translateX(-50%)
+        rotate(-12deg)
         scale(.92);
 
-    z-index: 5;
-
-    animation-delay: -3s;
+    z-index: 6;
 }
 
-/*
-    FRONT ROW
-    Smaller flowers overlap the stems and make
-    the bouquet feel layered.
-*/
+.flower-d {
+    transform:
+        translateX(-50%)
+        rotate(12deg)
+        scale(.92);
 
-/* rose — front left */
+    z-index: 6;
+}
+
+.flower-f {
+    transform:
+        translateX(-50%)
+        rotate(25deg)
+        scale(1);
+
+    z-index: 5;
+}
+
+
+/* FRONT / SMALLER FLOWERS */
+
 .flower-c {
     transform:
-        translateX(-43px)
+        translateX(-50%)
         rotate(-5deg)
-        scale(.68);
+        scale(.72);
 
     z-index: 20;
-
-    animation-delay: -.5s;
 }
 
-/* pink tulip — front right */
 .flower-e {
     transform:
-        translateX(30px)
+        translateX(-50%)
         rotate(5deg)
-        scale(.64);
+        scale(.68);
 
     z-index: 21;
-
-    animation-delay: -2.3s;
 }
 
 /* =====================================================
