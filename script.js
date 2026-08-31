@@ -1,6 +1,13 @@
-document.getElementById('openGift')?.addEventListener('click', () => {
-  const btn = document.getElementById('openGift');
-  btn.disabled = true;
-  btn.textContent = 'Opening... ♡';
-  setTimeout(() => { window.location.href = 'bouquet.html'; }, 650);
+document.addEventListener("DOMContentLoaded", () => {
+    const openGift = document.getElementById("openGift");
+
+    if (!openGift) return;
+
+    openGift.addEventListener("click", () => {
+        document.body.classList.add("opening");
+
+        setTimeout(() => {
+            window.location.href = "bouquet.html";
+        }, 350);
+    });
 });
