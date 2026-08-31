@@ -340,157 +340,171 @@ h1 span {
    BOUQUET
    ===================================================== */
 
+/* =====================================================
+   REALISTIC BOUQUET
+   ===================================================== */
+
 .bouquet {
     position: relative;
-
-    width: min(92vw, 720px);
-
-    height: 460px;
-
-    margin: 5px auto 0;
+    width: min(92vw, 600px);
+    height: 450px;
+    margin: 10px auto 0;
 }
 
-/* wrapping paper */
-
+/* bouquet wrapping paper */
 .wrap {
     position: absolute;
-
     left: 50%;
-    bottom: 5px;
+    bottom: 8px;
+
+    width: 250px;
+    height: 185px;
 
     transform: translateX(-50%);
 
-    width: 230px;
-    height: 190px;
-
-    z-index: 40;
+    z-index: 50;
 
     background:
         linear-gradient(
-            125deg,
-            #fff0f5,
-            #f0c9d9 45%,
-            #ce91b0
+            120deg,
+            #fff3f7 0%,
+            #f3d1df 45%,
+            #d79bb8 100%
         );
 
-    clip-path:
-        polygon(
-            8% 0,
-            92% 0,
-            72% 100%,
-            28% 100%
-        );
+    clip-path: polygon(
+        5% 0,
+        95% 0,
+        72% 100%,
+        28% 100%
+    );
 
     filter:
         drop-shadow(
-            0 14px 18px
+            0 15px 20px
             rgba(0,0,0,.38)
         );
 }
 
+/* subtle fold in the paper */
 .wrap::before {
     content: "";
 
     position: absolute;
 
-    left: 50%;
     top: 0;
+    left: 50%;
 
     width: 2px;
     height: 100%;
 
     background:
-        rgba(255,255,255,.35);
+        rgba(255,255,255,.4);
 
     transform:
         translateX(-50%)
-        rotate(7deg);
+        rotate(6deg);
 }
 
 /* =====================================================
-   FLOWERS
+   FLOWER BASE
    ===================================================== */
 
 .flower {
     position: absolute;
 
     left: 50%;
-    bottom: 70px;
+    bottom: 72px;
 
     width: 120px;
     height: 310px;
 
-    transform-origin:
-        50% 100%;
+    transform-origin: 50% 100%;
 
     animation:
         sway 5s ease-in-out infinite;
+
+    will-change: transform;
 }
 
-/* back flowers */
+/*
+    BACK ROW
+    These are taller and sit behind the smaller
+    foreground flowers.
+*/
 
+/* pink tulip — back left */
 .flower-a {
     transform:
-        translateX(-215px)
-        rotate(-25deg)
-        scale(1.08);
+        translateX(-130px)
+        rotate(-22deg)
+        scale(.92);
 
-    z-index: 7;
+    z-index: 5;
 
     animation-delay: -1s;
 }
 
+/* blue tulip — back center-left */
 .flower-b {
     transform:
-        translateX(-120px)
-        rotate(-12deg)
-        scale(1.02);
+        translateX(-65px)
+        rotate(-10deg)
+        scale(.86);
 
-    z-index: 8;
+    z-index: 7;
 
     animation-delay: -2s;
 }
 
+/* blue tulip — back center-right */
 .flower-d {
     transform:
-        translateX(100px)
-        rotate(12deg)
-        scale(1.02);
+        translateX(45px)
+        rotate(10deg)
+        scale(.86);
 
-    z-index: 8;
+    z-index: 7;
 
     animation-delay: -1.7s;
 }
 
+/* rose — back right */
 .flower-f {
     transform:
-        translateX(195px)
-        rotate(25deg)
-        scale(1.08);
+        translateX(115px)
+        rotate(21deg)
+        scale(.92);
 
-    z-index: 7;
+    z-index: 5;
 
     animation-delay: -3s;
 }
 
-/* front flowers */
+/*
+    FRONT ROW
+    Smaller flowers overlap the stems and make
+    the bouquet feel layered.
+*/
 
+/* rose — front left */
 .flower-c {
     transform:
-        translateX(-55px)
+        translateX(-43px)
         rotate(-5deg)
-        scale(.80);
+        scale(.68);
 
     z-index: 20;
 
     animation-delay: -.5s;
 }
 
+/* pink tulip — front right */
 .flower-e {
     transform:
         translateX(30px)
-        rotate(6deg)
-        scale(.76);
+        rotate(5deg)
+        scale(.64);
 
     z-index: 21;
 
